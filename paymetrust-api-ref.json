@@ -125,7 +125,7 @@
     "/payment": {
       "post": {
         "summary": "Process Payment",
-        "description": "Initiates a payment request. This endpoint supports multiple configurations based on country requirements. Use `XOF` as the currency for West African countries, `XAF` for CEMAC Countries, and specify other fields based on the payment method and country.\n- For **Benin (BJ)**: Use `MOOV_BJ` or  `MTN_BJ`.\n- For **Burkina Faso (BF)**: Use OM_BF,MOOV_BFor WAVE_BF for payment_method.\n- For **Côte d'Ivoire (CI)**: Use `OM_CI`, `MOOV_CI`, `WAVE_CI` or `MTN_CI for payment_method.\n- For **Mali (ML)**: Use `OM_ML`or `MOOV_ML`.\n- For **Cameroon (CM)**: Use `OM_CM` or. `MTN_CM`.\n- For **Guninea (GN)**: Use `OM_GN`or `MTN_GN`.\n- For **Senegal (SN)**: Use `OM_SN`, `WAVE_SN`,`FREE_SN`or `EXPRESSO_SN`.\n- For **Togo (TG)**: Use `MOOV_TG` or `TMONEY_TG`.\n- For **Niger (NE)**: Use `AIRTEL_NE`.\n- For **RDC (CD)**: Use `OM_CD`, `AIRTEL_CD`,`MPESA_CD`or `AFRICELL_CD`.\n",
+        "description": "Initiates a payment request. This endpoint supports multiple configurations based on country requirements. Use `XOF` as the currency for West African countries, `XAF` for CEMAC Countries, and specify other fields based on the payment method and country.\n- For **Benin (BJ)**: Use `MOOV_BJ` or  `MTN_BJ`.\n- For **Burkina Faso (BF)**: Use `OM_BF`,`MOOV_B`For `WAVE_BF` for payment_method.\n- For **Côte d'Ivoire (CI)**: Use `OM_CI`, `MOOV_CI`, `WAVE_CI` or `MTN_CI` for payment_method.\n- For **Mali (ML)**: Use `OM_ML`or `MOOV_ML`.\n- For **Cameroon (CM)**: Use `OM_CM` or. `MTN_CM`.\n- For **Guninea (GN)**: Use `OM_GN`or `MTN_GN`.\n- For **Senegal (SN)**: Use `OM_SN`, `WAVE_SN`,`FREE_SN`or `EXPRESSO_SN`.\n- For **Togo (TG)**: Use `MOOV_TG` or `TMONEY_TG`.\n- For **Niger (NE)**: Use `AIRTEL_NE`.\n- For **RDC (CD)**: Use `OM_CD`, `AIRTEL_CD`,`MPESA_CD`or `AFRICELL_CD`.\n\n\n- **NB**: The phone number `0707200200` is to simulate success in sandbox and `0707300300` is to simulate a failed transaction; for production, use real numbers per operator and country. Refer to the [official documentation](https://documenter.getpostman.com/view/16390052/Tzedg4ca#4711fcbe-4bdc-4179-81c3-945ff4f436c0).\n",
         "tags": [
           "Payment"
         ],
@@ -312,11 +312,12 @@
                     "notify_url": "http://demo.paymetrust-test.net/notification/notification",
                     "client_phone_number": "+2260707200200",
                     "payment_method": "OM_BF",
-                    "otp_code": "1234",
+                    "otp_code": 123456,
                     "direct_pay": false,
                     "designation": "Payment for order #1234",
                     "client_first_name": "John",
-                    "client_last_name": "Doe"
+                    "client_last_name": "Doe",
+                    "client_email": "client@example.com"
                   }
                 },
                 "MOOV BF": {
@@ -337,6 +338,24 @@
                     "client_last_name": "Doe"
                   }
                 },
+                "WAVE BF": {
+                  "summary": "BF - payment with WAVE BF",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "WAVE12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2260707200200",
+                    "client_email": "client@example.com",
+                    "payment_method": "WAVE_BF",
+                    "direct_pay": false,
+                    "designation": "Payment for order WAVE#12345",
+                    "client_first_name": "Jane",
+                    "client_last_name": "Doe"
+                  }
+                },
                 "OM CI": {
                   "summary": "CI - Payment with Orange CI",
                   "value": {
@@ -352,6 +371,7 @@
                     "designation": "Payment for order #5678",
                     "client_first_name": "Jane",
                     "client_last_name": "Doe",
+                    "client_email": "client@example.com",
                     "direct_pay": false
                   }
                 },
@@ -365,8 +385,10 @@
                     "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
                     "notify_url": "http://demo.paymetrust-test.net/notification/notification",
                     "client_phone_number": "+2250707200200",
+                    "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe",
                     "payment_method": "MTN_CI",
-                    "otp_code": 1234,
                     "direct_pay": false
                   }
                 },
@@ -381,12 +403,14 @@
                     "notify_url": "http://demo.paymetrust-test.net/notification/notification",
                     "client_phone_number": "+2250707200200",
                     "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe",
                     "payment_method": "MOOV_CI",
                     "direct_pay": false
                   }
                 },
                 "Wave CI": {
-                  "summary": "CI - Payment with Wave CI",
+                  "summary": "CI - Payment with WAVE CI",
                   "value": {
                     "currency": "XOF",
                     "merchant_transaction_id": "WAVE12345",
@@ -395,63 +419,372 @@
                     "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
                     "notify_url": "http://demo.paymetrust-test.net/notification/notification",
                     "client_phone_number": "+2250707200200",
-                    "client_name": "John Doe",
+                    "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe",
                     "payment_method": "WAVE_CI",
+                    "direct_pay": false
+                  }
+                },
+                "OM ML": {
+                  "summary": "ML - Payment with Orange ML",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2230707200200",
+                    "payment_method": "OM_ML",
+                    "otp_code": 123456,
+                    "direct_pay": false,
+                    "designation": "Payment for order OM#12345",
+                    "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe"
+                  }
+                },
+                "MOOV ML": {
+                  "summary": "ML - payment with MOOV ML",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2230707200200",
+                    "client_email": "client@example.com",
+                    "payment_method": "MOOV_BF",
+                    "direct_pay": false,
+                    "designation": "Payment for order MOOV ML#12345",
+                    "client_first_name": "Jane",
+                    "client_last_name": "Doe"
+                  }
+                },
+                "OM CM": {
+                  "summary": "CM - Payment with Orange CM",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2370707200200",
+                    "payment_method": "OM_CM",
+                    "direct_pay": false,
+                    "designation": "Payment for order OM CD#12345",
+                    "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe"
+                  }
+                },
+                "MTN CM": {
+                  "summary": "CM - payment with MTN CM",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2370707200200",
+                    "client_email": "client@example.com",
+                    "payment_method": "MOOV_BF",
+                    "direct_pay": false,
+                    "designation": "Payment for order MOOV ML#12345",
+                    "client_first_name": "Jane",
+                    "client_last_name": "Doe"
+                  }
+                },
+                "OM GN": {
+                  "summary": "GN - Payment with Orange GN",
+                  "value": {
+                    "currency": "GNF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2230707200200",
+                    "payment_method": "OM_GN",
+                    "direct_pay": false,
+                    "designation": "Payment for order OM CD#12345",
+                    "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe",
+                    "otp_code": 123456
+                  }
+                },
+                "MTN GN": {
+                  "summary": "GN - payment with MTN GN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2370707200200",
+                    "client_email": "client@example.com",
+                    "payment_method": "MOOV_BF",
+                    "direct_pay": false,
+                    "designation": "Payment for order MOOV ML#12345",
+                    "client_first_name": "Jane",
+                    "client_last_name": "Doe"
+                  }
+                },
+                "OM SN": {
+                  "summary": "SN - Payment with Orange SN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2210707200200",
+                    "payment_method": "OM_SN",
+                    "otp_code": 1234,
+                    "designation": "Payment for order #5678",
+                    "client_first_name": "Jane",
+                    "client_last_name": "Doe",
+                    "client_email": "client@example.com",
+                    "direct_pay": "false,",
+                    "channel": "OTP"
+                  }
+                },
+                "WAVE SN": {
+                  "summary": "SN - Payment with MTN SN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "WAVE12345",
+                    "amount": 200,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2210707200200",
+                    "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe",
+                    "payment_method": "WAVE_SN",
+                    "direct_pay": false
+                  }
+                },
+                "FREE SN": {
+                  "summary": "SN - Payment with FREE SN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "FREE12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2210707200200",
+                    "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe",
+                    "payment_method": "FREE_SN",
+                    "direct_pay": false
+                  }
+                },
+                "EXPRESSO SN": {
+                  "summary": "SN - Payment with EXPRESSO SN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "EXPRESSO12345",
+                    "amount": 200,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2210707200200",
+                    "client_email": "client@example.com",
+                    "designation": "Payment for order EXPRESSO SN#12345",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe",
+                    "payment_method": "EXPRESSO_SN",
+                    "direct_pay": false
+                  }
+                },
+                "MOOV TG": {
+                  "summary": "TG - Payment with MOOV TG",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2280707200200",
+                    "payment_method": "MOOV_TG",
+                    "otp_code": 1234,
+                    "designation": "Payment for order MOOV TG#12345",
+                    "client_first_name": "Jane",
+                    "client_last_name": "Doe",
+                    "client_email": "client@example.com",
+                    "direct_pay": false
+                  }
+                },
+                "TMONEY TG": {
+                  "summary": "TG - Payment with TMONEY TG",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "TMONEY12345",
+                    "amount": 200,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2280707200200",
+                    "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe",
+                    "designation": "Payment for order MOOV TG#12345",
+                    "payment_method": "TMONEY_TG",
+                    "direct_pay": false
+                  }
+                },
+                "AIRTEL NE": {
+                  "summary": "NE - Payment with AIRTEL NE",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "AIRTEL12345",
+                    "amount": 200,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2270707200200",
+                    "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe",
+                    "designation": "Payment for order AIRTEL NE#12345",
+                    "payment_method": "AIRTEL_NE",
+                    "direct_pay": false
+                  }
+                },
+                "OM CD": {
+                  "summary": "CD - Payment with Orange CD",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 200,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2430707200200",
+                    "payment_method": "OM_CD",
+                    "otp_code": 123456,
+                    "designation": "Payment for order OM CD#12345",
+                    "client_first_name": "Jane",
+                    "client_last_name": "Doe",
+                    "client_email": "client@example.com",
+                    "direct_pay": "false,"
+                  }
+                },
+                "AIRTEL CD": {
+                  "summary": "CD - Payment with AIRTEL CD",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "AIRTEL12345",
+                    "amount": 200,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2430707200200",
+                    "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe",
+                    "payment_method": "AIRTEL_CD",
+                    "direct_pay": false
+                  }
+                },
+                "MPESA CD": {
+                  "summary": "CD - Payment with MPESA CD",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MPESA12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2430707200200",
+                    "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe",
+                    "payment_method": "MPESA_CD",
+                    "direct_pay": false
+                  }
+                },
+                "AFRICELL CD": {
+                  "summary": "CD - Payment with AFRICELL CD",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "AFRICELL12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2430707200200",
+                    "client_email": "client@example.com",
+                    "client_first_name": "John",
+                    "client_last_name": "Doe",
+                    "payment_method": "AFRICELL_CD",
                     "direct_pay": false
                   }
                 }
               }
             }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Payment processed successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
+          },
+          "responses": {
+            "200": {
+              "description": "Payment processed successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "integer"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "transaction_id": {
+                        "type": "string"
+                      }
                     },
-                    "status": {
-                      "type": "string"
-                    },
-                    "transaction_id": {
-                      "type": "string"
+                    "example": {
+                      "code": 200,
+                      "status": "OK",
+                      "transaction_id": "txn_123456"
                     }
-                  },
-                  "example": {
-                    "code": 200,
-                    "status": "OK",
-                    "transaction_id": "txn_123456"
                   }
                 }
               }
-            }
-          },
-          "400": {
-            "description": "Invalid request parameters",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "code": {
-                      "type": "integer"
+            },
+            "400": {
+              "description": "Invalid request parameters",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "integer"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "description": {
+                        "type": "string"
+                      }
                     },
-                    "status": {
-                      "type": "string"
-                    },
-                    "description": {
-                      "type": "string"
+                    "example": {
+                      "code": 400,
+                      "status": "ERROR",
+                      "description": "Invalid request parameters."
                     }
-                  },
-                  "example": {
-                    "code": 400,
-                    "status": "ERROR",
-                    "description": "Invalid request parameters."
                   }
                 }
               }
@@ -579,7 +912,7 @@
     "/transfer": {
       "post": {
         "summary": "Process Transfer",
-        "description": "Initiates a transfer request. This endpoint supports multiple configurations based on country requirements.\n- For **Benin (BJ)**: Use MOOV_BJ or  MTN_BJ.\n- For **Burkina Faso (BF)**: Use OM_BF, MOOV_BF or WAVE_BF for payment_method.\n- For **Côte d'Ivoire (CI)**: Use OM_CI, MOOV_CI, WAVE_CI or MTN_CI for payment_method.\n- For **Mali (ML)**: Use OM_ML or MOOV_ML.\n- For **Cameroon (CM)**: Use OM_CM or MTN_CM.\n- For **Guinea (GN)**: Use OM_GN or MTN_GN.\n- For **Senegal (SN)**: Use OM_SN, WAVE_SN, FREE_SN or EXPRESSO.\n- For **Togo (TG)**: Use MOOV_TG or TMONEY_TG.\n- For **Niger (NE)**: Use AIRTEL_NE.\n- For **RDC (CD)**: Use OM_CD, AIRTEL_CD, MPESA_CD or AFRICELL_CD.\n",
+        "description": "Initiates a transfer request. This endpoint supports multiple configurations based on country requirements.\n- For **Benin (BJ)**: Use `MOOV_BJ` or  `MTN_BJ`.\n- For **Burkina Faso (BF)**: Use `OM_BF`, `MOOV_BF` or `WAVE_BF` for payment_method.\n- For **Côte d'Ivoire (CI)**: Use `OM_CI`, `MOOV_CI`, `WAVE_CI` or `MTN_CI` for payment_method.\n- For **Mali (ML)**: Use `OM_ML` or `MOOV_ML`.\n- For **Cameroon (CM)**: Use `OM_CM` or `MTN_CM`.\n- For **Guinea (GN)**: Use `OM_GN` or `MTN_GN`.\n- For **Senegal (SN)**: Use `OM_SN`, `WAVE_SN`, `FREE_SN` or `EXPRESSO`.\n- For **Togo (TG)**: Use `MOOV_TG` or `TMONEY_TG`.\n- For **Niger (NE)**: Use `AIRTEL_NE`.\n- For **RDC (CD)**: Use `OM_CD`, `AIRTEL_CD`, `MPESA_CD` or `AFRICELL_CD`.\n\n\n- **NB**: The phone number `0707200200` is to simulate success in sandbox and `0707300300` is to simulate a failed transaction; for production, use real numbers per operator and country. Refer to the [official documentation](https://documenter.getpostman.com/view/16390052/Tzedg4ca#4711fcbe-4bdc-4179-81c3-945ff4f436c0).\n",
         "tags": [
           "Transfert"
         ],
@@ -674,6 +1007,320 @@
                     }
                   }
                 ]
+              },
+              "examples": {
+                "MOOV BJ": {
+                  "summary": "BJ - Transfer with MOOV BJ",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "phone_number": "+2290707200200",
+                    "payment_method": "MOOV_BJ,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "MTN BJ": {
+                  "summary": "BJ - Transfer with MTN BJ",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MTN12345",
+                    "amount": 100,
+                    "phone_number": "+2290707200200",
+                    "payment_method": "MTN_BJ,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "OM BF": {
+                  "summary": "BF - Transfer with OM BF",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "phone_number": "+2290707200200",
+                    "payment_method": "OM_BF,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "MOOV BF": {
+                  "summary": "BF - Transfer with MOOV BF",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "phone_number": "+2260707200200",
+                    "payment_method": "MOOV_BF,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "WAVE BF": {
+                  "summary": "BF - Transfer with MOOV BF",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "WAVE12345",
+                    "amount": 100,
+                    "phone_number": "+2260707200200",
+                    "payment_method": "WAVE_BF,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "OM CI": {
+                  "summary": "CI - Transfer with OM CI",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OMCI12345",
+                    "amount": 100,
+                    "phone_number": "+2250707200200",
+                    "payment_method": "OM_CI,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "MTN CI": {
+                  "summary": "CI - Transfer with MTN CI",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MTN12345",
+                    "amount": 100,
+                    "phone_number": "+2250707200200",
+                    "payment_method": "MTN_CI,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "MOOV CI": {
+                  "summary": "CI - Transfer with MOOV CI",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "phone_number": "+2250707200200",
+                    "payment_method": "MOOV_CI,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "Wave CI": {
+                  "summary": "CI - Transfer with WAVE CI",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "WAVE12345",
+                    "amount": 100,
+                    "phone_number": "+2250707200200",
+                    "payment_method": "WAVE_CI,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "OM ML": {
+                  "summary": "ML - Transfer with OM ML",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "phone_number": "+2240707200200",
+                    "payment_method": "OM_ML,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "MOOV ML": {
+                  "summary": "ML - Transfer with MOOV ML",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "phone_number": "+2240707200200",
+                    "payment_method": "MOOV_ML,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "OM CM": {
+                  "summary": "CM - Transfer with OM CM",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "phone_number": "+2370707200200",
+                    "payment_method": "OM_CM,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "MTN CM": {
+                  "summary": "BJ - Transfer with MTN BJ",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MTN12345",
+                    "amount": 100,
+                    "phone_number": "+2370707200200",
+                    "payment_method": "MTN_CM,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "OM GN": {
+                  "summary": "GN - Transfer with OM GN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "phone_number": "+2230707200200",
+                    "payment_method": "OM_GN,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "MTN GN": {
+                  "summary": "GN - Transfer with MTN GN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MTN12345",
+                    "amount": 100,
+                    "phone_number": "+2230707200200",
+                    "payment_method": "MTN_GN,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "OM SN": {
+                  "summary": "SN - Transfer with OM SN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "phone_number": "+2210707200200",
+                    "payment_method": "MOOV_BJ,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "WAVE SN": {
+                  "summary": "SN - Transfer with WAVE SN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "WAVE12345",
+                    "amount": 100,
+                    "phone_number": "+2210707200200",
+                    "payment_method": "WAVE_SN,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "FREE SN": {
+                  "summary": "SN - Transfer with FREE SN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "FREE12345",
+                    "amount": 100,
+                    "phone_number": "+2210707200200",
+                    "payment_method": "FREE_SN,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "EXPRESSO SN": {
+                  "summary": "SN - Transfer with EXPRESSO SN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "EXPRESSO12345",
+                    "amount": 100,
+                    "phone_number": "+2210707200200",
+                    "payment_method": "EXPRESSO_SN,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "MOOV TG": {
+                  "summary": "TG - Transfer with MOOV TG",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "phone_number": "+2280707200200",
+                    "payment_method": "MOOV_TG,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "TMONEY TG": {
+                  "summary": "TG - Transfer with TMONEY TG",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "TMONEY12345",
+                    "amount": 100,
+                    "phone_number": "+2280707200200",
+                    "payment_method": "TMONEY_TG,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "AIRTEL NE": {
+                  "summary": "NE - Transfer with AIRTEL NE",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "AIRTEL12345",
+                    "amount": 100,
+                    "phone_number": "+2270707200200",
+                    "payment_method": "AIRTEL_NE,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "OM CD": {
+                  "summary": "CD - Transfer with OM CD",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "phone_number": "+2430707200200",
+                    "payment_method": "OM_CD,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "AIRTEL CD": {
+                  "summary": "BJ - Transfer with AIRTEL BJ",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "AIRTEL12345",
+                    "amount": 100,
+                    "phone_number": "+2430707200200",
+                    "payment_method": "AIRTEL_CD,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "MPESA CD": {
+                  "summary": "CD - Transfer with MPESA CD",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MPESA12345",
+                    "amount": 100,
+                    "phone_number": "+2430707200200",
+                    "payment_method": "MPESA_CD,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                },
+                "AFRICELL CD": {
+                  "summary": "CD - Transfer with AFRICELL CD",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "AFRICELL12345",
+                    "amount": 100,
+                    "phone_number": "+2430707200200",
+                    "payment_method": "AFRICELL_CD,",
+                    "reason": "Transfer with PMT,",
+                    "notify_url": "http://demo.paymetrust-test.net/notification'"
+                  }
+                }
               }
             }
           }
