@@ -1,0 +1,3503 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "PAYMETRUST API",
+    "version": "1.0.0",
+    "description": "API for payments in Burkina Faso"
+  },
+  "servers": [
+    {
+      "url": "https://api.sandbox.paymetrust.net/v1",
+      "description": "Sandbox environment"
+    },
+    {
+      "url": "https://api.paymetrust.net/v1",
+      "description": "Production environment"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Burkina Faso",
+      "description": "Payment transactions Burkina Faso"
+    },
+    {
+      "name": "Ivory Coast",
+      "description": "Payment transactions Ivory Coat"
+    },
+    {
+      "name": "Mali",
+      "description": "Payment transactions Mali"
+    },
+    {
+      "name": "Cameroon",
+      "description": "Payment transactions Cameroon"
+    },
+    {
+      "name": "Senegal",
+      "description": "Payment transactions Senegal"
+    },
+    {
+      "name": "Guinea",
+      "description": "Payment transactions Guinea"
+    },
+    {
+      "name": "Benin",
+      "description": "Payment transactions Benin"
+    },
+    {
+      "name": "Guinea",
+      "description": "Payment transactions Guinea"
+    },
+    {
+      "name": "Togo",
+      "description": "Payment transactions Togo"
+    },
+    {
+      "name": "Tchad",
+      "description": "Payment transactions Tchad"
+    },
+    {
+      "name": "Tchad",
+      "description": "Payment transactions Tchad"
+    },
+    {
+      "name": "RDC",
+      "description": "Payment transactions RDC"
+    },
+    {
+      "name": "Niger",
+      "description": "Payment transactions Niger"
+    },
+    {
+      "name": "Congo",
+      "description": "Payment transactions Congo"
+    },
+    {
+      "name": "Central African Republic",
+      "description": "Payment transactions Central African Republic"
+    },
+    {
+      "name": "Central African Gabon",
+      "description": "Payment transactions Central African Gabon"
+    },
+    {
+      "name": "Equatorial Guinea",
+      "description": "Payment transactions quatorial Guinea"
+    }
+  ],
+  "paths": {
+    "/payment": {
+      "post": {
+        "summary": "Initiating a payment in Burkina Faso",
+        "tags": [
+          "Burkina Faso"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "OM_BF"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MOOV_BF"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_name",
+                      "payment_method",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      ""
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_name": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MTN_BF"
+                        ]
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "OM": {
+                  "summary": "Example payment with Orange",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2260707200200",
+                    "payment_method": "OM_BF",
+                    "otp_code": 1234,
+                    "direct_pay": false
+                  }
+                },
+                "MOOV": {
+                  "summary": "Exemple de paiement MOOV",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2260707200200",
+                    "client_email": "client@example.com",
+                    "payment_method": "MOOV_BF",
+                    "direct_pay": false
+                  }
+                },
+                "Wave": {
+                  "summary": "Example Payment with Wave",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "WAVE12345",
+                    "amount": 200,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2260707200200",
+                    "client_name": "John Doe",
+                    "payment_method": "WAVE_BF",
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "paths": "",
+    "/payment/cote-ivoire": {
+      "post": {
+        "summary": "Initiating a payment in Ivory Coast ",
+        "tags": [
+          "Ivory Coast"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "OM_CI"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MOOV_CI"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_name",
+                      "payment_method",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      ""
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_name": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MTN_CI"
+                        ]
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "OM": {
+                  "summary": "Example payment with Orange",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2260707200200",
+                    "payment_method": "OM_CI",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                },
+                "MTN": {
+                  "summary": "Example payment with MTN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MTN12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2260707200200",
+                    "payment_method": "MTN_CI",
+                    "otp_code": 1234,
+                    "direct_pay": false
+                  }
+                },
+                "MOOV": {
+                  "summary": "Exemple de paiement MOOV",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2260707200200",
+                    "client_email": "client@example.com",
+                    "payment_method": "MOOV_BF",
+                    "direct_pay": false
+                  }
+                },
+                "Wave": {
+                  "summary": "Example Payment with Wave",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "WAVE12345",
+                    "amount": 200,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2260707200200",
+                    "client_name": "John Doe",
+                    "payment_method": "WAVE_CI",
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/mali": {
+      "post": {
+        "summary": "Initiating a payment in Mali ",
+        "tags": [
+          "Mali"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "OM_ML"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MOOV_ML"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_name",
+                      "payment_method",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      ""
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_name": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MTN_ML"
+                        ]
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "OM": {
+                  "summary": "Example payment with Orange",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2230707200200",
+                    "payment_method": "OM_ML",
+                    "otp_code": "1234tml",
+                    "direct_pay": false
+                  }
+                },
+                "MOOV": {
+                  "summary": "Exemple de paiement MOOV",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2230707200200",
+                    "client_email": "client@example.com",
+                    "payment_method": "MOOV_ML",
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/cameroon": {
+      "post": {
+        "summary": "Initiating a payment in Cameroon ",
+        "tags": [
+          "Cameroon"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XAF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "OM_CM"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XAF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MTN_CM"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "OM": {
+                  "summary": "Example payment with Orange",
+                  "value": {
+                    "currency": "XAF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2370707200200",
+                    "payment_method": "OM_CM",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                },
+                "MTN": {
+                  "summary": "Example payment with MTN",
+                  "value": {
+                    "currency": "XAF",
+                    "merchant_transaction_id": "MTN12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2370707200200",
+                    "payment_method": "MTN_CM",
+                    "otp_code": 1234,
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/senegal": {
+      "post": {
+        "summary": "Initiating a payment in Senegal ",
+        "tags": [
+          "Senegal"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "OM_SN"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "EXPRESSO_SN"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_name",
+                      "payment_method",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      ""
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_name": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "FREE_SN"
+                        ]
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "OM": {
+                  "summary": "Example payment with Orange",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2210707200200",
+                    "payment_method": "OM_SN",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                },
+                "WAVE": {
+                  "summary": "Example payment with WAVE",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "WAVE12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2210707200200",
+                    "payment_method": "WAVE_SN",
+                    "otp_code": 1234,
+                    "direct_pay": false
+                  }
+                },
+                "EXPRESSO_SN": {
+                  "summary": "Exemple de paiement EXPRESSO_SN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "EXPRESSO12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2210707200200",
+                    "client_email": "client@example.com",
+                    "payment_method": "EXPRESSO_SN",
+                    "direct_pay": false
+                  }
+                },
+                "FREE_SN": {
+                  "summary": "Example Payment with FREE_SN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "WAVE12345",
+                    "amount": 200,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2210707200200",
+                    "client_name": "John Doe",
+                    "payment_method": "FREE_SN",
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/guinea": {
+      "post": {
+        "summary": "Initiating a payment in Ivory Senegal ",
+        "tags": [
+          "Guinea"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "GNF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "OM_GN"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "GNF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MTN_GNF"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "OM_GN": {
+                  "summary": "Example payment with Orange",
+                  "value": {
+                    "currency": "OM_GN",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2240707200200",
+                    "payment_method": "OM_CI",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                },
+                "MTN_GN": {
+                  "summary": "Example payment with MTN",
+                  "value": {
+                    "currency": "GNF",
+                    "merchant_transaction_id": "MTN12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2240707200200",
+                    "payment_method": "MTN_GN",
+                    "otp_code": 1234,
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/benin": {
+      "post": {
+        "summary": "Initiating a payment in Ivory Senegal ",
+        "tags": [
+          "Benin"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MTN_BJ"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MOOV_BJ"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "MTN_BJ": {
+                  "summary": "Example payment with MTN",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MTN12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2290707200200",
+                    "payment_method": "MTN_BJ",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                },
+                "MOOV_BJ": {
+                  "summary": "Example payment with MOOV",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "MTN12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2290707200200",
+                    "payment_method": "MOOV_BJ",
+                    "otp_code": 1234,
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/togo": {
+      "post": {
+        "summary": "Initiating a payment in Ivory Senegal ",
+        "tags": [
+          "Togo"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MOOV_TG"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "TMONEY_TG"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "MOOV_TG": {
+                  "summary": "Example payment with MOOV",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2280707200200",
+                    "payment_method": "MOOV_TG",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                },
+                "TMONEY_TG": {
+                  "summary": "Example payment with TMONEY_TG",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "TMONEY12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2280707200200",
+                    "payment_method": "TMONEY_TG",
+                    "otp_code": 1234,
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/tchad": {
+      "post": {
+        "summary": "Initiating a payment in Tchad",
+        "tags": [
+          "Tchad"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XAF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MOOV_TD"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XAF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "AIRTEL_TD"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "MOOV_TD": {
+                  "summary": "Example payment with MOOV",
+                  "value": {
+                    "currency": "XAF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2350707200200",
+                    "payment_method": "MOOV_TD",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                },
+                "AIRTEL_TD": {
+                  "summary": "Example payment with AIRTEL",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "AIRTEL12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2350707200200",
+                    "payment_method": "AIRTEL_TD",
+                    "otp_code": 1234,
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/rdc": {
+      "post": {
+        "summary": "Initiating a payment in Democratic Republic of Congo ",
+        "tags": [
+          "RDC"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "CDF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "OM_CD"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "CDF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "AIRTEL_CD"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_name",
+                      "payment_method",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      ""
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "CDF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_name": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MPESA_CD"
+                        ]
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_name",
+                      "payment_method",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      ""
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "CDF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_name": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "AFRICELL_CD"
+                        ]
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "OM_CD": {
+                  "summary": "Example payment with Orange",
+                  "value": {
+                    "currency": "CDF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2430707200200",
+                    "payment_method": "OM_CD",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                },
+                "AIRTEL_CD": {
+                  "summary": "Example payment with AIRTEL",
+                  "value": {
+                    "currency": "CDF",
+                    "merchant_transaction_id": "AIRTEL12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2430707200200",
+                    "payment_method": "AIRTEL_CD",
+                    "otp_code": 1234,
+                    "direct_pay": false
+                  }
+                },
+                "MPESA_CD": {
+                  "summary": "Exemple de paiement MPESA",
+                  "value": {
+                    "currency": "CDF",
+                    "merchant_transaction_id": "MPESA12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2430707200200",
+                    "client_email": "client@example.com",
+                    "payment_method": "MPESA_CD",
+                    "direct_pay": false
+                  }
+                },
+                "AFRICELL_CD": {
+                  "summary": "Example Payment with AFRICELL",
+                  "value": {
+                    "currency": "CDF",
+                    "merchant_transaction_id": "AFRICELL12345",
+                    "amount": 200,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2430707200200",
+                    "client_name": "John Doe",
+                    "payment_method": "AFRICELL_CD",
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/niger": {
+      "post": {
+        "summary": "Initiating a payment in Niger ",
+        "tags": [
+          "Niger"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XOF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "AIRTEL_NE"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "AIRTEL": {
+                  "summary": "Example payment with AIRTEL_NE",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "AIRTEL12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2270707200200",
+                    "payment_method": "AIRTEL_NE",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/congo": {
+      "post": {
+        "summary": "Initiating a payment in Congo ",
+        "tags": [
+          "Congo"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XAF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "AIRTEL_CG"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XAF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MTN_CG"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "AIRTEL_CG": {
+                  "summary": "Example payment with AIRTEL",
+                  "value": {
+                    "currency": "XAF",
+                    "merchant_transaction_id": "AIRTEL12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2420707200200",
+                    "payment_method": "AIRTEL_CG",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                },
+                "MTN_CG": {
+                  "summary": "Example payment with MTN",
+                  "value": {
+                    "currency": "XAF",
+                    "merchant_transaction_id": "MTN12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2420707200200",
+                    "payment_method": "MTN_CG",
+                    "otp_code": 1234,
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/centrafique": {
+      "post": {
+        "summary": "Initiating a payment in Central African Republic ",
+        "tags": [
+          "Central African Republic"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XAF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "ORANGE_CF"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XAF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "TELECEL_CF"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "OM_CF": {
+                  "summary": "Example payment with Orange",
+                  "value": {
+                    "currency": "XAF",
+                    "merchant_transaction_id": "OM12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2360707200200",
+                    "payment_method": "OM_CF",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                },
+                "TELECEL_CF": {
+                  "summary": "Example payment with TELECEL",
+                  "value": {
+                    "currency": "XAF",
+                    "merchant_transaction_id": "TELECEL12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2360707200200",
+                    "payment_method": "TELECEL_CF",
+                    "otp_code": 1234,
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/gabon": {
+      "post": {
+        "summary": "Initiating a payment in Gabon ",
+        "tags": [
+          "Gabon"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XAF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "AIRTEL_GA"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "client_email",
+                      "payment_method",
+                      "direct_pay",
+                      "success_url",
+                      "failed_url",
+                      "notify_url"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XAF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "client_email": {
+                        "type": "string",
+                        "format": "email"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MOOV_GA"
+                        ]
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "AIRTEL_GA": {
+                  "summary": "Example payment with AIRTEL",
+                  "value": {
+                    "currency": "XAF",
+                    "merchant_transaction_id": "AIRTEL12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2410707200200",
+                    "payment_method": "AIRTEL_GA",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                },
+                "MOOV_GA": {
+                  "summary": "Example payment with MOOV",
+                  "value": {
+                    "currency": "XAF",
+                    "merchant_transaction_id": "MOOV12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2410707200200",
+                    "payment_method": "MOOV_GA",
+                    "otp_code": 1234,
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/payment/equatorial-guinea": {
+      "post": {
+        "summary": "Initiating a payment in Equatorial Guinea ",
+        "tags": [
+          "Equatorial Guinea"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "oneOf": [
+                  {
+                    "type": "object",
+                    "required": [
+                      "currency",
+                      "merchant_transaction_id",
+                      "amount",
+                      "client_phone_number",
+                      "payment_method",
+                      "otp_code",
+                      "success_url",
+                      "failed_url",
+                      "notify_url",
+                      "designation",
+                      "client_first_name",
+                      "client_last_name"
+                    ],
+                    "properties": {
+                      "currency": {
+                        "type": "string",
+                        "enum": [
+                          "XAF"
+                        ]
+                      },
+                      "merchant_transaction_id": {
+                        "type": "string"
+                      },
+                      "amount": {
+                        "type": "number"
+                      },
+                      "client_phone_number": {
+                        "type": "string"
+                      },
+                      "payment_method": {
+                        "type": "string",
+                        "enum": [
+                          "MUNI_GQ"
+                        ]
+                      },
+                      "otp_code": {
+                        "type": "string",
+                        "default": 1234
+                      },
+                      "direct_pay": {
+                        "type": "boolean",
+                        "default": false
+                      },
+                      "designation": {
+                        "type": "string"
+                      },
+                      "client_first_name": {
+                        "type": "string"
+                      },
+                      "client_last_name": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              },
+              "examples": {
+                "MUNI_GQ": {
+                  "summary": "Example payment with Muni",
+                  "value": {
+                    "currency": "XOF",
+                    "merchant_transaction_id": "Muni12345",
+                    "amount": 100,
+                    "success_url": "http://demo.paymetrust-test.net/notification",
+                    "failed_url": "http://demo.paymetrust-test.net/notification/cancel/",
+                    "notify_url": "http://demo.paymetrust-test.net/notification/notification",
+                    "client_phone_number": "+2400707200200",
+                    "payment_method": "MUNI_GQ",
+                    "otp_code": "1234tyn",
+                    "direct_pay": false
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Paiement initié avec succès",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "code": {
+                      "type": "integer"
+                    },
+                    "status": {
+                      "type": "string"
+                    },
+                    "payment_token": {
+                      "type": "string"
+                    },
+                    "transaction_id": {
+                      "type": "string"
+                    },
+                    "payment_url": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    },
+    "schemas": {
+      "PaymentRequestOM": {
+        "type": "object",
+        "required": [
+          "currency",
+          "merchant_transaction_id",
+          "amount",
+          "client_phone_number",
+          "payment_method",
+          "otp_code",
+          "success_url",
+          "failed_url",
+          "notify_url",
+          "designation",
+          "client_first_name",
+          "client_last_name"
+        ],
+        "properties": {
+          "currency": {
+            "type": "string",
+            "enum": [
+              "XOF"
+            ]
+          },
+          "merchant_transaction_id": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "client_phone_number": {
+            "type": "string"
+          },
+          "payment_method": {
+            "type": "string",
+            "enum": [
+              "OM_BF"
+            ]
+          },
+          "otp_code": {
+            "type": "string",
+            "default": 1234
+          },
+          "direct_pay": {
+            "type": "boolean",
+            "default": false
+          },
+          "designation": {
+            "type": "string"
+          },
+          "client_first_name": {
+            "type": "string"
+          },
+          "client_last_name": {
+            "type": "string"
+          }
+        }
+      },
+      "PaymentRequestMOOV": {
+        "type": "object",
+        "required": [
+          "currency",
+          "merchant_transaction_id",
+          "amount",
+          "client_phone_number",
+          "client_email",
+          "payment_method",
+          "direct_pay",
+          "success_url",
+          "failed_url",
+          "notify_url"
+        ],
+        "properties": {
+          "currency": {
+            "type": "string",
+            "enum": [
+              "XOF"
+            ]
+          },
+          "merchant_transaction_id": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "client_phone_number": {
+            "type": "string"
+          },
+          "client_email": {
+            "type": "string",
+            "format": "email"
+          },
+          "payment_method": {
+            "type": "string",
+            "enum": [
+              "MOOV_BF"
+            ]
+          },
+          "direct_pay": {
+            "type": "boolean",
+            "default": false
+          },
+          "designation": {
+            "type": "string"
+          },
+          "client_first_name": {
+            "type": "string"
+          },
+          "client_last_name": {
+            "type": "string"
+          }
+        }
+      },
+      "PaymentRequestWave": {
+        "type": "object",
+        "required": [
+          "currency",
+          "merchant_transaction_id",
+          "amount",
+          "client_phone_number",
+          "client_name",
+          "payment_method",
+          "success_url",
+          "failed_url",
+          "notify_url",
+          ""
+        ],
+        "properties": {
+          "currency": {
+            "type": "string",
+            "enum": [
+              "XOF"
+            ]
+          },
+          "merchant_transaction_id": {
+            "type": "string"
+          },
+          "amount": {
+            "type": "number"
+          },
+          "client_phone_number": {
+            "type": "string"
+          },
+          "client_name": {
+            "type": "string"
+          },
+          "payment_method": {
+            "type": "string",
+            "enum": [
+              "MTN_BF"
+            ]
+          },
+          "designation": {
+            "type": "string"
+          },
+          "client_first_name": {
+            "type": "string"
+          },
+          "client_last_name": {
+            "type": "string"
+          }
+        }
+      },
+      "PaymentResponse": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer"
+          },
+          "status": {
+            "type": "string"
+          },
+          "payment_token": {
+            "type": "string"
+          },
+          "transaction_id": {
+            "type": "string"
+          },
+          "payment_url": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
