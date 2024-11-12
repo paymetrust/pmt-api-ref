@@ -14,19 +14,6 @@
     <div id="swagger-ui"></div>
     <script src="./swagger-ui-bundle.js" charset="UTF-8"> </script>
     <script src="./swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
-    <script>
-      window.onload = function() {
-        const ui = SwaggerUIBundle({
-          url: "./PMT_API.yaml", // remplace par ton chemin YAML ou JSON
-          dom_id: '#swagger-ui',
-          presets: [
-            SwaggerUIBundle.presets.apis,
-            SwaggerUIStandalonePreset
-          ],
-          layout: "StandaloneLayout"
-        });
-        window.ui = ui;
-      };
-    </script>
+    <script src="./swagger-initializer.js" charset="UTF-8"> </script>
   </body>
 </html>
