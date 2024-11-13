@@ -28,7 +28,7 @@
     "/oauth/login": {
       "post": {
         "summary": "User Authentication",
-        "description": "Authenticates a user using API credentials.",
+        "description": "Authenticates your application using API credentials you received. \n\nYou received the credentials for both sandbox and production via an email address you provided. \n\nIf this doesn’t work, please reach out to your administrator to request regeneration or to send it to you.\n",
         "tags": [
           "Authentication"
         ],
@@ -456,7 +456,7 @@
                     "notify_url": "http://demo.paymetrust-test.net/notification/notification",
                     "client_phone_number": "+2230707200200",
                     "client_email": "client@example.com",
-                    "payment_method": "MOOV_ML",
+                    "payment_method": "MOOV_BF",
                     "direct_pay": false,
                     "designation": "Payment for order MOOV ML#12345",
                     "client_first_name": "Jane",
@@ -492,7 +492,7 @@
                     "notify_url": "http://demo.paymetrust-test.net/notification/notification",
                     "client_phone_number": "+2370707200200",
                     "client_email": "client@example.com",
-                    "payment_method": "MTN_CM",
+                    "payment_method": "MOOV_BF",
                     "direct_pay": false,
                     "designation": "Payment for order MOOV ML#12345",
                     "client_first_name": "Jane",
@@ -529,7 +529,7 @@
                     "notify_url": "http://demo.paymetrust-test.net/notification/notification",
                     "client_phone_number": "+2370707200200",
                     "client_email": "client@example.com",
-                    "payment_method": "MTN_GN",
+                    "payment_method": "MOOV_BF",
                     "direct_pay": false,
                     "designation": "Payment for order MOOV ML#12345",
                     "client_first_name": "Jane",
