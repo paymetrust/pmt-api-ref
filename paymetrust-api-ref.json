@@ -736,33 +736,50 @@
               }
             }
           },
-          "responses": {
-            "200": {
-              "description": "Payment processed successfully",
-              "content": {
-                "application/json": {
-                  "schema": {
-                    "type": "object",
-                    "properties": {
-                      "code": {
-                        "type": "integer"
-                      },
-                      "status": {
-                        "type": "string"
-                      },
-                      "transaction_id": {
-                        "type": "string"
+         "responses": {
+                "200": {
+                  "description": "Payment processed successfully",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "code": { "type": "integer" },
+                          "status": { "type": "string" },
+                          "transaction_id": { "type": "string" }
+                        },
+                        "example": {
+                          "code": 200,
+                          "status": "OK",
+                          "transaction_id": "txn_123456"
+                        }
                       }
-                    },
-                    "example": {
-                      "code": 200,
-                      "status": "OK",
-                      "transaction_id": "txn_123456"
+                    }
+                  }
+                },
+                "400": {
+                  "description": "Invalid request parameters",
+                  "content": {
+                    "application/json": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "code": { "type": "integer" },
+                          "status": { "type": "string" },
+                          "description": { "type": "string" }
+                        },
+                        "example": {
+                          "code": 400,
+                          "status": "ERROR",
+                          "description": "Invalid request parameters."
+                        }
+                      }
                     }
                   }
                 }
               }
-            },
+            }
+          },
             "400": {
               "description": "Invalid request parameters",
               "content": {
@@ -914,7 +931,7 @@
         "summary": "Process Transfer",
         "description": "Initiates a transfer request. This endpoint supports multiple configurations based on country requirements.\n- For **Benin (BJ)**: Use `MOOV_BJ` or  `MTN_BJ`.\n- For **Burkina Faso (BF)**: Use `OM_BF`, `MOOV_BF` or `WAVE_BF` for payment_method.\n- For **Côte d'Ivoire (CI)**: Use `OM_CI`, `MOOV_CI`, `WAVE_CI` or `MTN_CI` for payment_method.\n- For **Mali (ML)**: Use `OM_ML` or `MOOV_ML`.\n- For **Cameroon (CM)**: Use `OM_CM` or `MTN_CM`.\n- For **Guinea (GN)**: Use `OM_GN` or `MTN_GN`.\n- For **Senegal (SN)**: Use `OM_SN`, `WAVE_SN`, `FREE_SN` or `EXPRESSO`.\n- For **Togo (TG)**: Use `MOOV_TG` or `TMONEY_TG`.\n- For **Niger (NE)**: Use `AIRTEL_NE`.\n- For **RDC (CD)**: Use `OM_CD`, `AIRTEL_CD`, `MPESA_CD` or `AFRICELL_CD`.\n\n\n- **NB**: The phone number `0707200200` is to simulate success in sandbox and `0707300300` is to simulate a failed transaction; for production, use real numbers per operator and country. Refer to the [official documentation](https://documenter.getpostman.com/view/16390052/Tzedg4ca#4711fcbe-4bdc-4179-81c3-945ff4f436c0).\n",
         "tags": [
-          "Transfert"
+          "Transfer"
         ],
         "security": [
           {
