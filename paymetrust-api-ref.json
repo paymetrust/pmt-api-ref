@@ -557,7 +557,7 @@
                   }
                 },
                 "WAVE SN": {
-                  "summary": "SN - Payment with MTN SN",
+                  "summary": "SN - Payment with WAVE SN",
                   "value": {
                     "currency": "XOF",
                     "merchant_transaction_id": "WAVE12345",
@@ -736,50 +736,33 @@
               }
             }
           },
-         "responses": {
-                "200": {
-                  "description": "Payment processed successfully",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "type": "object",
-                        "properties": {
-                          "code": { "type": "integer" },
-                          "status": { "type": "string" },
-                          "transaction_id": { "type": "string" }
-                        },
-                        "example": {
-                          "code": 200,
-                          "status": "OK",
-                          "transaction_id": "txn_123456"
-                        }
+          "responses": {
+            "200": {
+              "description": "Payment processed successfully",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "code": {
+                        "type": "integer"
+                      },
+                      "status": {
+                        "type": "string"
+                      },
+                      "transaction_id": {
+                        "type": "string"
                       }
-                    }
-                  }
-                },
-                "400": {
-                  "description": "Invalid request parameters",
-                  "content": {
-                    "application/json": {
-                      "schema": {
-                        "type": "object",
-                        "properties": {
-                          "code": { "type": "integer" },
-                          "status": { "type": "string" },
-                          "description": { "type": "string" }
-                        },
-                        "example": {
-                          "code": 400,
-                          "status": "ERROR",
-                          "description": "Invalid request parameters."
-                        }
-                      }
+                    },
+                    "example": {
+                      "code": 200,
+                      "status": "OK",
+                      "transaction_id": "8d87c68cc4364bb6a06ef25a180c71a9"
                     }
                   }
                 }
               }
-            }
-          },
+            },
             "400": {
               "description": "Invalid request parameters",
               "content": {
@@ -1171,7 +1154,7 @@
                   }
                 },
                 "MTN CM": {
-                  "summary": "BJ - Transfer with MTN BJ",
+                  "summary": "CM - Transfer with MTN CM",
                   "value": {
                     "currency": "XOF",
                     "merchant_transaction_id": "MTN12345",
@@ -1443,7 +1426,7 @@
         "summary": "Check Transfer Status",
         "description": "Checks the status of a transfer based on the provided transaction ID.\n",
         "tags": [
-          "Transfert"
+          "Transfer"
         ],
         "security": [
           {
