@@ -466,7 +466,7 @@
                 "OM CM": {
                   "summary": "CM - Payment with Orange CM",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "XAF",
                     "merchant_transaction_id": "OM12345",
                     "amount": 100,
                     "success_url": "http://demo.paymetrust-test.net/notification",
@@ -484,7 +484,7 @@
                 "MTN CM": {
                   "summary": "CM - payment with MTN CM",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "XAF",
                     "merchant_transaction_id": "MOOV12345",
                     "amount": 100,
                     "success_url": "http://demo.paymetrust-test.net/notification",
@@ -521,7 +521,7 @@
                 "MTN GN": {
                   "summary": "GN - payment with MTN GN",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "GNF",
                     "merchant_transaction_id": "MOOV12345",
                     "amount": 100,
                     "success_url": "http://demo.paymetrust-test.net/notification",
@@ -666,7 +666,7 @@
                 "OM CD": {
                   "summary": "CD - Payment with Orange CD",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "CDF",
                     "merchant_transaction_id": "OM12345",
                     "amount": 200,
                     "success_url": "http://demo.paymetrust-test.net/notification",
@@ -685,7 +685,7 @@
                 "AIRTEL CD": {
                   "summary": "CD - Payment with AIRTEL CD",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "CDF",
                     "merchant_transaction_id": "AIRTEL12345",
                     "amount": 200,
                     "success_url": "http://demo.paymetrust-test.net/notification",
@@ -702,7 +702,7 @@
                 "MPESA CD": {
                   "summary": "CD - Payment with MPESA CD",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "CDF",
                     "merchant_transaction_id": "MPESA12345",
                     "amount": 100,
                     "success_url": "http://demo.paymetrust-test.net/notification",
@@ -719,7 +719,7 @@
                 "AFRICELL CD": {
                   "summary": "CD - Payment with AFRICELL CD",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "CDF",
                     "merchant_transaction_id": "AFRICELL12345",
                     "amount": 100,
                     "success_url": "http://demo.paymetrust-test.net/notification",
@@ -1144,7 +1144,7 @@
                 "OM CM": {
                   "summary": "CM - Transfer with OM CM",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "XAF",
                     "merchant_transaction_id": "OM12345",
                     "amount": 100,
                     "phone_number": "+2370707200200",
@@ -1156,7 +1156,7 @@
                 "MTN CM": {
                   "summary": "CM - Transfer with MTN CM",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "XAF",
                     "merchant_transaction_id": "MTN12345",
                     "amount": 100,
                     "phone_number": "+2370707200200",
@@ -1168,7 +1168,7 @@
                 "OM GN": {
                   "summary": "GN - Transfer with OM GN",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "GNF",
                     "merchant_transaction_id": "OM12345",
                     "amount": 100,
                     "phone_number": "+2230707200200",
@@ -1180,7 +1180,7 @@
                 "MTN GN": {
                   "summary": "GN - Transfer with MTN GN",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "GNF",
                     "merchant_transaction_id": "MTN12345",
                     "amount": 100,
                     "phone_number": "+2230707200200",
@@ -1276,7 +1276,7 @@
                 "OM CD": {
                   "summary": "CD - Transfer with OM CD",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "CDF",
                     "merchant_transaction_id": "OM12345",
                     "amount": 100,
                     "phone_number": "+2430707200200",
@@ -1288,7 +1288,7 @@
                 "AIRTEL CD": {
                   "summary": "BJ - Transfer with AIRTEL BJ",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "CDF",
                     "merchant_transaction_id": "AIRTEL12345",
                     "amount": 100,
                     "phone_number": "+2430707200200",
@@ -1300,7 +1300,7 @@
                 "MPESA CD": {
                   "summary": "CD - Transfer with MPESA CD",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "CDF",
                     "merchant_transaction_id": "MPESA12345",
                     "amount": 100,
                     "phone_number": "+2430707200200",
@@ -1312,7 +1312,7 @@
                 "AFRICELL CD": {
                   "summary": "CD - Transfer with AFRICELL CD",
                   "value": {
-                    "currency": "XOF",
+                    "currency": "CDF",
                     "merchant_transaction_id": "AFRICELL12345",
                     "amount": 100,
                     "phone_number": "+2430707200200",
