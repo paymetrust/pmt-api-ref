@@ -1286,7 +1286,7 @@
                   }
                 },
                 "AIRTEL CD": {
-                  "summary": "BJ - Transfer with AIRTEL BJ",
+                  "summary": "CD - Transfer with AIRTEL CD",
                   "value": {
                     "currency": "CDF",
                     "merchant_transaction_id": "AIRTEL12345",
