@@ -112,7 +112,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -152,7 +152,7 @@
                         - "MOOV_BF"
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -208,7 +208,7 @@
                   "client_phone_number": "+2260707200200"
                   "payment_method": "OM_BF"
                   "otp_code": 1234
-                  "direct_pay": false
+                  "direct_pay": true
               "MOOV":
                 "summary": "Exemple de paiement MOOV"
                 "value":
@@ -221,7 +221,7 @@
                   "client_phone_number": "+2260707200200"
                   "client_email": "client@example.com"
                   "payment_method": "MOOV_BF"
-                  "direct_pay": false
+                  "direct_pay": true
               "Wave":
                 "summary": "Example Payment with Wave"
                 "value":
@@ -304,7 +304,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -344,7 +344,7 @@
                         - "MOOV_CI"
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -400,7 +400,7 @@
                   "client_phone_number": "+2260707200200"
                   "payment_method": "OM_CI"
                   "otp_code": 1234tyn
-                  "direct_pay": false
+                  "direct_pay": true
               "MTN":
                 "summary": "Example payment with MTN"
                 "value":
@@ -413,7 +413,7 @@
                   "client_phone_number": "+2260707200200"
                   "payment_method": "MTN_CI"
                   "otp_code": 1234
-                  "direct_pay": false
+                  "direct_pay": true
               "MOOV":
                 "summary": "Exemple de paiement MOOV"
                 "value":
@@ -426,7 +426,7 @@
                   "client_phone_number": "+2260707200200"
                   "client_email": "client@example.com"
                   "payment_method": "MOOV_BF"
-                  "direct_pay": false
+                  "direct_pay": true
               "Wave":
                 "summary": "Example Payment with Wave"
                 "value":
@@ -439,7 +439,7 @@
                   "client_phone_number": "+2260707200200"
                   "client_name": "John Doe"
                   "payment_method": "WAVE_CI"
-                  "direct_pay": false
+                  "direct_pay": true
             
       "responses":
         "200":
@@ -508,7 +508,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -604,7 +604,7 @@
                   "client_phone_number": "+2230707200200"
                   "payment_method": "OM_ML"
                   "otp_code": 1234tml
-                  "direct_pay": false
+                  "direct_pay": true
               "MOOV":
                 "summary": "Exemple de paiement MOOV"
                 "value":
@@ -617,7 +617,7 @@
                   "client_phone_number": "+2230707200200"
                   "client_email": "client@example.com"
                   "payment_method": "MOOV_ML"
-                  "direct_pay": false
+                  "direct_pay": true
             
       "responses":
         "200":
@@ -686,7 +686,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -726,7 +726,7 @@
                         - "MTN_CM"
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -735,7 +735,7 @@
                       "type": "string"
             "examples":
               "OM":
-                "summary": "Example payment with Orange"
+                "summary": "Example payment with Orange Cameroon"
                 "value":
                   "currency": "XAF"
                   "merchant_transaction_id": "OM12345"
@@ -745,10 +745,9 @@
                   "notify_url": "http://demo.paymetrust-test.net/notification/notification"
                   "client_phone_number": "+2370707200200"
                   "payment_method": "OM_CM"
-                  "otp_code": 1234tyn
-                  "direct_pay": false
+                  "direct_pay": true
               "MTN":
-                "summary": "Example payment with MTN"
+                "summary": "Example payment with MTN Cameroon"
                 "value":
                   "currency": "XAF"
                   "merchant_transaction_id": "MTN12345"
@@ -758,8 +757,7 @@
                   "notify_url": "http://demo.paymetrust-test.net/notification/notification"
                   "client_phone_number": "+2370707200200"
                   "payment_method": "MTN_CM"
-                  "otp_code": 1234
-                  "direct_pay": false
+                  "direct_pay": true
       "responses":
         "200":
           "description": "Paiement initié avec succès"
@@ -828,7 +826,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -913,7 +911,7 @@
                       "type": "string"
             "examples":
               "OM":
-                "summary": "Example payment with Orange"
+                "summary": "Example payment with Orange Senegal"
                 "value":
                   "currency": "XOF"
                   "merchant_transaction_id": "OM12345"
@@ -923,8 +921,8 @@
                   "notify_url": "http://demo.paymetrust-test.net/notification/notification"
                   "client_phone_number": "+2210707200200"
                   "payment_method": "OM_SN"
-                  "otp_code": 1234tyn
-                  "direct_pay": false
+                  "otp_code": 1234
+                  "direct_pay": true
               "WAVE":
                 "summary": "Example payment with WAVE"
                 "value":
@@ -937,7 +935,7 @@
                   "client_phone_number": "+2210707200200"
                   "payment_method": "WAVE_SN"
                   "otp_code": 1234
-                  "direct_pay": false
+                  "direct_pay": true
               "EXPRESSO_SN":
                 "summary": "Exemple de paiement EXPRESSO_SN"
                 "value":
@@ -950,7 +948,7 @@
                   "client_phone_number": "+2210707200200"
                   "client_email": "client@example.com"
                   "payment_method": "EXPRESSO_SN"
-                  "direct_pay": false
+                  "direct_pay": true
               "FREE_SN":
                 "summary": "Example Payment with FREE_SN"
                 "value":
@@ -963,7 +961,7 @@
                   "client_phone_number": "+2210707200200"
                   "client_name": "John Doe"
                   "payment_method": "FREE_SN"
-                  "direct_pay": false
+                  "direct_pay": true
             
       "responses":
         "200":
@@ -985,7 +983,7 @@
                     "type": "string"
   "/payment/guinea":
     "post":
-      "summary": "Initiating a payment in Ivory Senegal "
+      "summary": "Initiating a payment in Guinea Conakry "
       "tags":
         - "Guinea"
       "security":
@@ -1032,7 +1030,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -1072,7 +1070,7 @@
                         - "MTN_GNF"
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -1081,20 +1079,20 @@
                       "type": "string"
             "examples":
               "OM_GN":
-                "summary": "Example payment with Orange"
+                "summary": "Example payment with Orange Guinea conakry"
                 "value":
-                  "currency": "OM_GN"
+                  "currency": "GNF"
                   "merchant_transaction_id": "OM12345"
                   "amount": 100
                   "success_url": "http://demo.paymetrust-test.net/notification"
                   "failed_url": "http://demo.paymetrust-test.net/notification/cancel/"
                   "notify_url": "http://demo.paymetrust-test.net/notification/notification"
                   "client_phone_number": "+2240707200200"
-                  "payment_method": "OM_CI"
-                  "otp_code": 1234tyn
-                  "direct_pay": false
+                  "payment_method": "OM_GN"
+                  "otp_code": 12345
+                  "direct_pay": true
               "MTN_GN":
-                "summary": "Example payment with MTN"
+                "summary": "Example payment with MTN Guinea Conakry"
                 "value":
                   "currency": "GNF"
                   "merchant_transaction_id": "MTN12345"
@@ -1105,7 +1103,7 @@
                   "client_phone_number": "+2240707200200"
                   "payment_method": "MTN_GN"
                   "otp_code": 1234
-                  "direct_pay": false
+                  "direct_pay": true
             
       "responses":
         "200":
@@ -1127,7 +1125,7 @@
                     "type": "string"
   "/payment/benin":
     "post":
-      "summary": "Initiating a payment in Ivory Senegal "
+      "summary": "Initiating a payment in Benin Republic "
       "tags":
         - "Benin"
       "security":
@@ -1174,7 +1172,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -1214,7 +1212,7 @@
                         - "MOOV_BJ"
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -1234,7 +1232,7 @@
                   "client_phone_number": "+2290707200200"
                   "payment_method": "MTN_BJ"
                   "otp_code": 1234tyn
-                  "direct_pay": false
+                  "direct_pay": true
               "MOOV_BJ":
                 "summary": "Example payment with MOOV"
                 "value":
@@ -1247,7 +1245,7 @@
                   "client_phone_number": "+2290707200200"
                   "payment_method": "MOOV_BJ"
                   "otp_code": 1234
-                  "direct_pay": false
+                  "direct_pay": true
             
       "responses":
         "200":
@@ -1269,7 +1267,7 @@
                     "type": "string"
   "/payment/togo":
     "post":
-      "summary": "Initiating a payment in Ivory Senegal "
+      "summary": "Initiating a payment in Togo "
       "tags":
         - "Togo"
       "security":
@@ -1316,7 +1314,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -1376,7 +1374,7 @@
                   "client_phone_number": "+2280707200200"
                   "payment_method": "MOOV_TG"
                   "otp_code": 1234tyn
-                  "direct_pay": false
+                  "direct_pay": true
               "TMONEY_TG":
                 "summary": "Example payment with TMONEY_TG"
                 "value":
@@ -1389,7 +1387,7 @@
                   "client_phone_number": "+2280707200200"
                   "payment_method": "TMONEY_TG"
                   "otp_code": 1234
-                  "direct_pay": false
+                  "direct_pay": true
             
       "responses":
         "200":
@@ -1411,7 +1409,7 @@
                     "type": "string"
   "/payment/tchad":
     "post":
-      "summary": "Initiating a payment in Tchad"
+      "summary": "Initiating a payment in Chad"
       "tags":
         - "Tchad"
       "security":
@@ -1458,7 +1456,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -1498,7 +1496,7 @@
                         - "AIRTEL_TD"
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -1517,12 +1515,12 @@
                   "notify_url": "http://demo.paymetrust-test.net/notification/notification"
                   "client_phone_number": "+2350707200200"
                   "payment_method": "MOOV_TD"
-                  "otp_code": 1234tyn
-                  "direct_pay": false
+                  "otp_code": 1234
+                  "direct_pay": true
               "AIRTEL_TD":
                 "summary": "Example payment with AIRTEL"
                 "value":
-                  "currency": "XOF"
+                  "currency": "XAF"
                   "merchant_transaction_id": "AIRTEL12345"
                   "amount": 100
                   "success_url": "http://demo.paymetrust-test.net/notification"
@@ -1531,7 +1529,7 @@
                   "client_phone_number": "+2350707200200"
                   "payment_method": "AIRTEL_TD"
                   "otp_code": 1234
-                  "direct_pay": false
+                  "direct_pay": true
             
       "responses":
         "200":
@@ -1600,7 +1598,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -1640,7 +1638,7 @@
                         - "AIRTEL_CD"
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -1731,8 +1729,8 @@
                   "notify_url": "http://demo.paymetrust-test.net/notification/notification"
                   "client_phone_number": "+2430707200200"
                   "payment_method": "OM_CD"
-                  "otp_code": 1234tyn
-                  "direct_pay": false
+                  "otp_code": 1234
+                  "direct_pay": true
               "AIRTEL_CD":
                 "summary": "Example payment with AIRTEL"
                 "value":
@@ -1745,7 +1743,7 @@
                   "client_phone_number": "+2430707200200"
                   "payment_method": "AIRTEL_CD"
                   "otp_code": 1234
-                  "direct_pay": false
+                  "direct_pay": true
               "MPESA_CD":
                 "summary": "Exemple de paiement MPESA"
                 "value":
@@ -1758,7 +1756,7 @@
                   "client_phone_number": "+2430707200200"
                   "client_email": "client@example.com"
                   "payment_method": "MPESA_CD"
-                  "direct_pay": false
+                  "direct_pay": true
               "AFRICELL_CD":
                 "summary": "Example Payment with AFRICELL"
                 "value":
@@ -1771,7 +1769,7 @@
                   "client_phone_number": "+2430707200200"
                   "client_name": "John Doe"
                   "payment_method": "AFRICELL_CD"
-                  "direct_pay": false
+                  "direct_pay": true
             
       "responses":
         "200":
@@ -1840,7 +1838,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -1859,8 +1857,8 @@
                   "notify_url": "http://demo.paymetrust-test.net/notification/notification"
                   "client_phone_number": "+2270707200200"
                   "payment_method": "AIRTEL_NE"
-                  "otp_code": 1234tyn
-                  "direct_pay": false
+                  "otp_code": 1234
+                  "direct_pay": true
             
       "responses":
         "200":
@@ -1882,7 +1880,7 @@
                     "type": "string"
   "/payment/congo":
     "post":
-      "summary": "Initiating a payment in Congo "
+      "summary": "Initiating a payment in Congo Braza"
       "tags":
         - "Congo"
       "security":
@@ -1929,7 +1927,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -1969,7 +1967,7 @@
                         - "MTN_CG"
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -1988,8 +1986,8 @@
                   "notify_url": "http://demo.paymetrust-test.net/notification/notification"
                   "client_phone_number": "+2420707200200"
                   "payment_method": "AIRTEL_CG"
-                  "otp_code": 1234tyn
-                  "direct_pay": false
+                  "otp_code": 1234
+                  "direct_pay": true
               "MTN_CG":
                 "summary": "Example payment with MTN"
                 "value":
@@ -2070,7 +2068,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -2110,7 +2108,7 @@
                         - "TELECEL_CF"
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -2129,8 +2127,8 @@
                   "notify_url": "http://demo.paymetrust-test.net/notification/notification"
                   "client_phone_number": "+2360707200200"
                   "payment_method": "OM_CF"
-                  "otp_code": 1234tyn
-                  "direct_pay": false
+                  "otp_code": 1234
+                  "direct_pay": true
               "TELECEL_CF":
                 "summary": "Example payment with TELECEL"
                 "value":
@@ -2143,7 +2141,7 @@
                   "client_phone_number": "+2360707200200"
                   "payment_method": "TELECEL_CF"
                   "otp_code": 1234
-                  "direct_pay": false
+                  "direct_pay": true
       "responses":
         "200":
           "description": "Paiement initié avec succès"
@@ -2211,7 +2209,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -2251,7 +2249,7 @@
                         - "MOOV_GA"
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -2270,8 +2268,8 @@
                   "notify_url": "http://demo.paymetrust-test.net/notification/notification"
                   "client_phone_number": "+2410707200200"
                   "payment_method": "AIRTEL_GA"
-                  "otp_code": 1234tyn
-                  "direct_pay": false
+                  "otp_code": 1234
+                  "direct_pay": true
               "MOOV_GA":
                 "summary": "Example payment with MOOV"
                 "value":
@@ -2284,7 +2282,7 @@
                   "client_phone_number": "+2410707200200"
                   "payment_method": "MOOV_GA"
                   "otp_code": 1234
-                  "direct_pay": false
+                  "direct_pay": true
       "responses":
         "200":
           "description": "Paiement initié avec succès"
@@ -2352,7 +2350,7 @@
                       "default": 1234
                     "direct_pay":
                       "type": "boolean"
-                      "default": false
+                      "default": true
                     "designation":
                       "type": "string"
                     "client_first_name":
@@ -2371,8 +2369,8 @@
                   "notify_url": "http://demo.paymetrust-test.net/notification/notification"
                   "client_phone_number": "+2400707200200"
                   "payment_method": "MUNI_GQ"
-                  "otp_code": 1234tyn
-                  "direct_pay": false
+                  "otp_code": 1234
+                  "direct_pay": true
             
       "responses":
         "200":
@@ -2433,7 +2431,7 @@
           "default": 1234
         "direct_pay":
           "type": "boolean"
-          "default": false
+          "default": true
         "designation":
           "type": "string"
         "client_first_name":
@@ -2473,7 +2471,7 @@
             - "MOOV_BF"
         "direct_pay":
           "type": "boolean"
-          "default": false
+          "default": true
         "designation":
           "type": "string"
         "client_first_name":
